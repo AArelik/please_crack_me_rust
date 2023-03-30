@@ -2,6 +2,7 @@ use std::io;
 
 fn main() {
     let mut username_input = String::new();
+    println!("Enter your username:");
     io::stdin()
         .read_line(&mut username_input)
         .expect("Failed to read the username.");
@@ -10,6 +11,7 @@ fn main() {
     username_input.truncate(len);
 
     let mut number_input = String::new();
+    println!("Enter a number:");
     io::stdin()
         .read_line(&mut number_input)
         .expect("Failed to read line.");
@@ -22,5 +24,6 @@ fn main() {
         let c = char as u32 + n;
         z.push(char::from_u32(c).unwrap());
     }
-    print!("Your password is: {}", z);
+    println!("Your password is: {}", z);
+    dont_disappear::any_key_to_continue::default();
 }
