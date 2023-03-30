@@ -1,6 +1,8 @@
 use std::io;
 
 fn main() {
+
+    // Take username from input then remove Newline.
     let mut username_input = String::new();
     println!("Enter your username:");
     io::stdin()
@@ -10,6 +12,7 @@ fn main() {
     let len = username_input.trim_end_matches(&['\r', '\n'][..]).len();
     username_input.truncate(len);
 
+    // Take number input then convert to u32.
     let mut number_input = String::new();
     println!("Enter a number:");
     io::stdin()
@@ -20,10 +23,13 @@ fn main() {
 
     let mut z = String::new();
 
+    // Take each character, cast as u32 then add the user number to it then add it to String z.
     for char in username_input.chars() {
         let c = char as u32 + n;
         z.push(char::from_u32(c).unwrap());
     }
     println!("Your password is: {}", z);
+
+    // Stop window from closing until any key is pressed.
     dont_disappear::any_key_to_continue::default();
 }
